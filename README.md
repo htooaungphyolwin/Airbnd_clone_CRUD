@@ -79,7 +79,8 @@ airbnb-clone/
 │   │   ├── new.ejs         # Form to create a new listing
 │   │   ├── show.ejs        # Show details of a single listing
 │   │   └── edit.ejs        # Form to edit a listing
-│   └── partials/           # Partial EJS templates (e.g., header, footer)
+│   └── includes/           # Partial EJS templates (e.g., header, footer)
+|   └── layouts/            # EJS-mate boilerplate 
 ├── public/
 │   └── css/                # CSS files for styling
 ├── app.js                  # Main application file
