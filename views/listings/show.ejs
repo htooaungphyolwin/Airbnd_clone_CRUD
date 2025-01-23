@@ -1,0 +1,105 @@
+<% layout('layouts/boilerplate') %>
+<main class="container">
+  <div class="property-details">
+    <div class="property-images">
+      <div class="main-image">
+        <img src="<%= listing.image.url %>" alt="<%= listing.title %>" />
+      </div>
+      <div class="image-grid">
+        <img
+          src="https://a0.muscache.com/im/pictures/miso/Hosting-23780166/original/484e7ed5-2e36-4f29-baa7-1c06c47f94c7.jpeg?im_w=720&im_format=avif"
+          alt="Cottage Interior"
+        />
+        <img
+          src="https://a0.muscache.com/im/pictures/miso/Hosting-23780166/original/cae484b5-1bf8-4743-a6b3-739d83cd4372.jpeg?im_w=720&im_format=avif"
+          alt="Cottage Exterior"
+        />
+        <img
+          src="https://a0.muscache.com/im/pictures/miso/Hosting-851221457069159416/original/30468927-4c4b-489c-bd98-7ff307787c40.jpeg?im_w=720&im_format=avif"
+          alt="Beach View"
+        />
+        <img
+          src="https://a0.muscache.com/im/pictures/miso/Hosting-824254092645253914/original/c0e3bc7d-bc48-431c-a656-0d3b1faf6f11.jpeg?im_w=720&im_format=avif"
+          alt="Sunset View"
+        />
+      </div>
+    </div>
+    <div class="property-info">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <h1 class="property-title"><%= listing.title %></h1>
+        <div style="display: flex; gap: 10px">
+          <a href="/listings/<%= listing._id %>/edit" class="property-link"
+            >Edit</a
+          >
+          <form
+            action="/listings/<%= listing._id %>?_method=DELETE"
+            method="POST"
+          >
+            <button type="submit" class="delete-btn">Delete</button>
+          </form>
+        </div>
+      </div>
+      <p class="property-location">
+        <%= listing.location %>, <%= listing.country %>
+      </p>
+      <div class="property-features">
+        <div class="feature">
+          <div class="feature-icon">🛏️</div>
+          <p>2 Bedrooms</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🚿</div>
+          <p>1 Bathroom</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">👥</div>
+          <p>4 Guests</p>
+        </div>
+      </div>
+      <p class="property-description"><%= listing.description %></p>
+      <h2>Amenities</h2>
+      <div class="property-amenities">
+        <div class="amenity">
+          <span class="amenity-icon">📶</span>
+          <span>Free WiFi</span>
+        </div>
+        <div class="amenity">
+          <span class="amenity-icon">🅿️</span>
+          <span>Free Parking</span>
+        </div>
+        <div class="amenity">
+          <span class="amenity-icon">🏊</span>
+          <span>Beach Access</span>
+        </div>
+        <div class="amenity">
+          <span class="amenity-icon">🔥</span>
+          <span>Fireplace</span>
+        </div>
+        <div class="amenity">
+          <span class="amenity-icon">🍳</span>
+          <span>Full Kitchen</span>
+        </div>
+        <div class="amenity">
+          <span class="amenity-icon">📺</span>
+          <span>TV</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="booking-card">
+    <p class="price">$<%= listing.price.toLocaleString("en-US") %> / night</p>
+    <form class="booking-form">
+      <input type="date" placeholder="Check-in Date" />
+      <input type="date" placeholder="Check-out Date" />
+      <input type="number" placeholder="Number of Guests" />
+      <button type="submit">Book Now</button>
+    </form>
+  </div>
+</main>
+

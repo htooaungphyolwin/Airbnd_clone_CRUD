@@ -1,0 +1,33 @@
+<% layout('layouts/boilerplate') %>
+<main>
+  <section class="search-section">
+    <h1>Find your next stay</h1>
+    <form id="search-form">
+      <input type="text" placeholder="Where are you going?" id="location" />
+      <input type="date" id="check-in" />
+      <input type="date" id="check-out" />
+      <input type="number" placeholder="Guests" id="guests" min="1" />
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <section class="listings" id="listings">
+    <% listings.map((listing) => { %>
+    <div class="property-card">
+      <div class="property-image">
+        <img src="<%= listing.image.url %>" alt="<%= listing.title %>" />
+      </div>
+      <div class="property-info">
+        <h2 class="property-title">
+          <a href="/listings/<%= listing._id %>"><%= listing.title %></a>
+        </h2>
+        <p class="property-description"><%= listing.description %></p>
+        <p class="property-price">$<%= listing.price.toLocaleString("en-US") %> / per night</p>
+        <p class="property-location"><%= listing.location %></p>
+        <p class="property-country"><%= listing.country %></p>
+      </div>
+    </div>
+    <% }) %>
+  </section>
+</main>
+
